@@ -1,0 +1,68 @@
+/* SECTION 10: Conditional Expressions and Procedures */
+/* NULLIF */
+/* The NULLIF function takes in 2 inputs and returns NULL if both are equal, otherwise it returns the first argument passed */
+
+CREATE TABLE depts(
+first_name VARCHAR(50),
+department VARCHAR(50)
+)
+
+INSERT INTO depts(first_name, department)
+VALUES
+('Vinton','A'),
+('Lauren','A'),
+('Claire','B')
+SELECT * FROM depts
+
+SELECT(
+SUM(CASE WHEN department = 'A' THEN 1 ELSE 0 END)
+)
+FROM depts
+
+SELECT(
+SUM(CASE WHEN department = 'A' THEN 1 ELSE 0 END)/
+SUM (CASE WHEN department = 'B' THEN 1 ELSE 0 END)
+) AS department_ratio
+FROM depts
+
+/* Assume there is no person in department B */
+DELETE FROM depts
+WHERE department = 'B'
+SELECT * FROM depts
+
+
+/* The following now produces an error */
+SELECT(
+SUM(CASE WHEN department = 'A' THEN 1 ELSE 0 END)/
+SUM (CASE WHEN department = 'B' THEN 1 ELSE 0 END)
+) AS department_ratio
+FROM depts
+
+/* Code below returns null not an error */
+SELECT(
+SUM(CASE WHEN department = 'A' THEN 1 ELSE 0 END)/
+NULLIF(SUM(CASE WHEN department = 'B' THEN 1 ELSE 0 END),0)
+) AS department_ratio
+FROM depts
+
+
+/* IMPORT/EXPORT */
+/* First, create a csv file (with 3 columns A,B,C and 3 rows with integers) in your machine and save it. Use command below to import */
+
+CREATE TABLE simple(
+a INTEGER,
+b INTEGER,
+c INTEGER
+)
+
+/* Now go to 'simple' table on the left menubar, right click to choose IMPORT/EXPORT option */
+SELECT * FROM simple
+
+/* You can export this new table in a similar way */
+
+
+
+
+
+
+
