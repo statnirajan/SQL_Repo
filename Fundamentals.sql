@@ -2,8 +2,32 @@
 /* SECTION 2: SQL Statement Fundamentals */
 /* Using "dvdrental" database, answer the following */
 
-/* CHALLENGE: SELECT WHERE */
+/* CHALLENGE: SELECT */
+/* Grab the first and last names of every customer and their email address (customer table) */
+SELECT first_name, last_name, email FROM customer;
 
+/* CHALLENGE: SELECT DISTINCT */
+/* What distinct ratings are available (films table) */
+SELECT DISTINCT rating FROM film;
+
+/* Grab where rental rates are > 4 (film table) */
+SELECT * FROM film
+WHERE rental_rate > 4;
+
+/* Grab title of movies where rental rates are > 4 and replacement cost >=19.99 (film table) */
+SELECT title FROM film
+WHERE rental_rate > 4 AND replacement_cost >=19.99;
+
+/*Count how many movies satisfy that previous condition */
+
+
+/* having R rating or PG-13 rating */
+
+/* return everything not equal to R */
+
+
+
+/* CHALLENGE: SELECT WHERE */
 /* 1. What is the email for the customer with the name Nancy Thomas (customer table) */ 
 SELECT * FROM customer;
 SELECT email FROM customer
@@ -11,7 +35,7 @@ WHERE first_name = 'Nancy' AND last_name = 'Thomas';
 
 /* 2. Could you give a customer the description for the movie "Outlaw Hanky" (film table) */
 SELECT * FROM film;
-SELECT description from film
+SELECT description FROM film
 WHERE title = 'Outlaw Hanky';
 
 /* 3. Can you get the phone number for the customer who lives at '259 Ipoh Drive' (address table) */
@@ -19,9 +43,7 @@ SELECT * FROM address;
 SELECT phone FROM address
 WHERE address = '259 Ipoh Drive';
 
-
 /* ORDER BY */
-
 SELECT * FROM customer
 ORDER BY first_name ASC;
 SELECT * FROM customer
