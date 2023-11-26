@@ -19,13 +19,17 @@ SELECT title FROM film
 WHERE rental_rate > 4 AND replacement_cost >=19.99;
 
 /*Count how many movies satisfy that previous condition */
-
+SELECT COUNT(title) FROM film
+WHERE rental_rate > 4 AND replacement_cost >=19.99;
 
 /* having R rating or PG-13 rating */
 
+SELECT * FROM film
+WHERE rating = 'R' or rating = 'PG-13';
+
 /* return everything not equal to R */
-
-
+SELECT * FROM film
+WHERE rating != 'R';
 
 /* CHALLENGE: SELECT WHERE */
 /* 1. What is the email for the customer with the name Nancy Thomas (customer table) */ 
