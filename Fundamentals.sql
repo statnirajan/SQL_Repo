@@ -50,10 +50,13 @@ WHERE address = '259 Ipoh Drive';
 /* ORDER BY */
 SELECT * FROM customer
 ORDER BY first_name ASC;
+
 SELECT * FROM customer
 ORDER BY last_name DESC;
+
 SELECT store_id, first_name, last_name FROM customer
 ORDER BY store_id DESC, first_name;
+
 SELECT first_name, last_name FROM customer
 ORDER BY store_id DESC, first_name;  /* this also works */
 
@@ -71,19 +74,21 @@ LIMIT 5;
 
 /* CHALLENGE: ORDER BY */
 
-/* 1. What are the customers ids of the first 10 customers who created a payment */
+/* 1. What are the customers ids of the first 10 customers who created a payment (payment table) */
 SELECT * FROM payment
+  
 SELECT customer_id FROM payment
 ORDER BY payment_date
 LIMIT 10;
 
 /* 2. What are the titles of the 5 shortest (in length of runtime) movies (film table) */
 SELECT * FROM film;
+
 SELECT title, length FROM film
 ORDER BY length
 LIMIT 5;
 
-/* 3. How many movies have run time less than or equal to 50 minutes */
+/* 3. How many movies have run time less than or equal to 50 minutes (film table) */
 SELECT COUNT (title) FROM film
 WHERE length <= 50;
 
@@ -120,6 +125,7 @@ WHERE first_name IN ('John','Jake','Julie');
 
 /* LIKE and ILIKE */
 
+/* Note that % matches any sequence of characters and underscore _ matches any single character */
 SELECT * FROM customer
 WHERE first_name LIKE 'J%';
 
@@ -160,6 +166,7 @@ SELECT DISTINCT (district) FROM address;
 
 /* 5. How many films have a rating of R and a replacement cost between $ 5 and $ 15 */
 SELECT * FROM film;
+
 SELECT COUNT (*) FROM film
 WHERE rating = 'R' AND replacement_cost BETWEEN 5 and 15;
 
