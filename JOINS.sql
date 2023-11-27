@@ -3,22 +3,28 @@
 /* AS Statement */
 
 SELECT * FROM payment;
+
 SELECT amount AS rental_price 
 FROM payment;
+
 SELECT SUM (amount) AS net_revenue 
 FROM payment;
+
 SELECT COUNT (amount) AS num_transactions  /* Can use asterick as well */
 FROM payment;
+
 SELECT customer_id, SUM (amount) AS total_spent
 FROM payment
 GROUP BY customer_id;
+
 SELECT customer_id, SUM (amount) AS total_spent
 FROM payment
 GROUP BY customer_id
 HAVING SUM (amount) > 100;  /* YOU did not use Aliases in WHERE CLAUSE OR HAVING CLAUSE */
+
 SELECT customer_id, amount AS new_name
 FROM payment
-WHERE amount > 3   
+WHERE amount > 3;
 
 /*INNER JOINS */
 
